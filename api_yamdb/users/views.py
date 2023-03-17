@@ -21,7 +21,6 @@ User = get_user_model()
 
 
 class UserSignUpAPIView(APIView):
-    """Вьюсет регистрации нового пользователя"""
 
     permission_classes = (AllowAny,)
 
@@ -45,7 +44,6 @@ class UserSignUpAPIView(APIView):
 
 
 class UserViewSet(ModelViewSet):
-    """Вьюсет модели User."""
 
     queryset = User.objects.order_by('username')
     serializer_class = UserSerializer

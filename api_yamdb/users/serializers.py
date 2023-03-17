@@ -9,7 +9,6 @@ EMAIL_MAX_LENGTH = User._meta.get_field('email').max_length
 
 
 class UserSignUpSerializer(serializers.Serializer):
-    """Сериалайзер регистрации нового пользователя"""
 
     email = serializers.EmailField(max_length=EMAIL_MAX_LENGTH)
     username = serializers.RegexField(regex=NO_ME_USERNAME_REGEX,
@@ -17,7 +16,6 @@ class UserSignUpSerializer(serializers.Serializer):
 
 
 class TokenSerializer(serializers.Serializer):
-    """Сериалайзер токена"""
 
     username = serializers.RegexField(regex=NO_ME_USERNAME_REGEX,
                                       max_length=USERNAME_MAX_LENGTH)
@@ -25,7 +23,6 @@ class TokenSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    """Сериалайзер пользователя"""
 
     class Meta:
         model = User

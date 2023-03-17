@@ -2,10 +2,6 @@ from rest_framework.permissions import SAFE_METHODS, BasePermission
 
 
 class IsAuthorOrReadOnly(BasePermission):
-    """
-    Только авторизованные пользователя могут создавать посты.
-    Только автор, модератор, админ могут редактировать.
-    """
     def has_permission(self, request, view):
         return bool(request.method in SAFE_METHODS
                     or request.user and request.user.is_authenticated)
@@ -24,9 +20,6 @@ class IsAuthorOrReadOnly(BasePermission):
 
 
 class IsAdminOrReadOnly(BasePermission):
-    """
-    Только админу доступно редактирование.
-    """
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
             return True
@@ -39,9 +32,6 @@ class IsAdminOrReadOnly(BasePermission):
 
 
 class IsAdminUser(BasePermission):
-    """
-    Разрешает доступ только пользователям с правами администратора.
-    """
     def has_permission(self, request, view):
         return bool(request.user and request.user.is_authenticated
                     and request.user.is_admin)
