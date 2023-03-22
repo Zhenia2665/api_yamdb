@@ -39,7 +39,11 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     @property
     def review(self):
-        return get_object_or_404(Review, id=self.kwargs.get('review_id'))
+        return get_object_or_404(
+            Review,
+            id=self.kwargs.get('review_id'),
+            title__id=self.kwargs.get('title_id')
+        )
 
     def get_queryset(self):
         return self.review.comments.order_by('pub_date')

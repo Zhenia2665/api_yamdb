@@ -18,8 +18,8 @@ class ReviewSerializer(serializers.ModelSerializer):
             title = self.context['view'].title
 
             if author.reviews.filter(title=title).exists():
-                raise serializers.ValidationError("Вы уже посмотрели "
-                                                  "это название.")
+                raise serializers.ValidationError('Вы уже посмотрели '
+                                                  'это название.')
 
         return attrs
 

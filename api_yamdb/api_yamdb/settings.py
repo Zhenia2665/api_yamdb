@@ -9,6 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
