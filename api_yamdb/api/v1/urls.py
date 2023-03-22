@@ -28,8 +28,13 @@ v1_router.register(
 )
 
 
+auth_urls = [
+    path('signup/', UserSignUpAPIView.as_view(), name='signup'),
+    path('token/', token_obtain, name='token'),
+]
+
+
 urlpatterns = [
     path('', include(v1_router.urls), name='api-root'),
-    path('auth/signup/', UserSignUpAPIView.as_view(), name='signup'),
-    path('auth/token/', token_obtain, name='token'),
+    path('auth/', include(auth_urls)),
 ]
