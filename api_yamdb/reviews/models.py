@@ -48,6 +48,7 @@ class Title(models.Model):
     year = models.PositiveIntegerField(
         'Год выпуска',
         validators=[MaxValueValidator(date.today().year)],
+        db_index=True,
     )
     category = models.ForeignKey(
         Category,
